@@ -1,6 +1,7 @@
 module.exports = {
   "env": {
     "browser": true,
+    "node": true,
     "es6": true,
     "jest/globals": true
   },
@@ -30,10 +31,6 @@ module.exports = {
     "quotes": [
       "error",
       "single"
-    ],
-    "semi": [
-      "error",
-      "never"
     ],
     "eqeqeq": "error",
     "no-trailing-spaces": "error",
