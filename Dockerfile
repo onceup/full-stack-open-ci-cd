@@ -11,7 +11,7 @@ RUN npm install
 
 # ---------- PRODUCTION IMAGE ----------
 
-FROM node:16.16.0
+FROM node:16.18.0
 
 ENV NODE_ENV production
 COPY --from=build /usr/bin /usr/bin
