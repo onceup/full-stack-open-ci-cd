@@ -21,7 +21,6 @@ kill_timeout = 5
   internal_port = 5100
   processes = ["app"]
   protocol = "tcp"
-  script_checks = []
   [services.concurrency]
     hard_limit = 25
     soft_limit = 20
@@ -52,3 +51,9 @@ kill_timeout = 5
     timeout = 2000
     tls_skip_verify = false
     [services.http_checks.headers]
+
+  [[services.script_checks]]
+    interval = 10000
+    timeout = 1000
+    command = "./health_check.sh"
+    restart_limit = 0
