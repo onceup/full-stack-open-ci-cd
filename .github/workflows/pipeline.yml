@@ -35,9 +35,10 @@ jobs:
           command: npm run test:e2e
       - name: Deploy app
         if: ${{ github.event_name == 'push' }}
-        uses: actions/checkout@v3
-        uses: superfly/flyctl-actions/setup-flyctl@master
-        run: flyctl deploy --remote-only
+        steps:
+          - uses: actions/checkout@v3
+          - uses: superfly/flyctl-actions/setup-flyctl@master
+          - run: flyctl deploy --remote-only
 
   tag_release:
     needs: [simple_deployment_pipeline]
