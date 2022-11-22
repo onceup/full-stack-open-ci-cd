@@ -35,6 +35,7 @@ jobs:
           command: npm run test:e2e
 
   deploy:
+    if: ${{ github.event_name == 'push' }}
     name: Deploy app
     runs-on: ubuntu-20.04
     steps:
