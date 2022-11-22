@@ -33,12 +33,6 @@ jobs:
           start: npm run start-prod
           wait-on: http://localhost:5100
           command: npm run test:e2e
-      - name: Deploy app
-        if: ${{ github.event_name == 'push' }}
-        steps:
-          - uses: actions/checkout@v3
-            uses: superfly/flyctl-actions/setup-flyctl@master
-            run: flyctl deploy --remote-only
 
   tag_release:
     needs: [simple_deployment_pipeline]
@@ -49,5 +43,3 @@ jobs:
         uses: anothrNick/github-tag-action@ce4b5ffa38e072fa7a901e417253c438fcc2ccce
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          WITH_V: true
-          DEFAULT_BUMP: patch
