@@ -12,7 +12,8 @@ const useApi = (url, mapResults = (result) => result) => {
       .then(response => setData(mapResults(response.data)))
       .catch(setError)
       .finally(() => setIsLoading(false))
-  }, [url])
+  },
+  [url])
 
   return { data, isLoading, error }
 }
